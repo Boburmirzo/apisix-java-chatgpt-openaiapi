@@ -1,28 +1,27 @@
 package com.company.project.controllers;
 
-import com.company.project.dto.ChatRequest;
-import com.company.project.dto.ChatResponse;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.theokanning.openai.completion.chat.ChatCompletionChoice;
+import com.theokanning.openai.completion.chat.ChatCompletionRequest;
+import com.theokanning.openai.completion.chat.ChatMessage;
+import com.theokanning.openai.completion.chat.ChatMessageRole;
+import com.theokanning.openai.service.OpenAiService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @RestController
 public class ChatCompletionController {
 
-    private final RestTemplate restTemplate;
-
     @Value("${openai.model}")
     private String model;
 
-    @Value("${openai.api.url}")
-    private String apiUrl;
-
-    public ChatCompletionController(@Qualifier("openaiRestTemplate") RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
+    @Value("${openai.api.key}")
+    private String openaiApiKey;
 
     /**
      * Creates a chat request and sends it to the OpenAI API
@@ -33,17 +32,24 @@ public class ChatCompletionController {
      */
     @PostMapping("/ai-chat")
     public String chat(@RequestBody String prompt) {
-        ChatRequest request = new ChatRequest(model, prompt);
+        OpenAiService service = new OpenAiService(openaiApiKey);
 
-        ChatResponse response = restTemplate.postForObject(
-                apiUrl,
-                request,
-                ChatResponse.class);
+        final List<ChatMessage> messages = new ArrayList<>();
+        final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), prompt);
+        messages.add(systemMessage);
 
-        if (response == null || response.getChoices() == null || response.getChoices().isEmpty()) {
+        ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest
+            .builder()
+            .model(model)
+            .messages(messages)
+            .build();
+
+        List<ChatCompletionChoice> choices = service.createChatCompletion(chatCompletionRequest).getChoices();
+
+        if (choices == null || choices.isEmpty()) {
             return "No response";
         }
 
-        return response.getChoices().get(0).getMessage().getContent();
+        return choices.get(0).getMessage().getContent();
     }
 }
