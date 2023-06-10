@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -35,13 +34,14 @@ public class ChatCompletionController {
         OpenAiService service = new OpenAiService(openaiApiKey);
 
         final List<ChatMessage> messages = new ArrayList<>();
-        final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), prompt);
+        final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.USER.value(), prompt);
         messages.add(systemMessage);
 
         ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest
             .builder()
             .model(model)
             .messages(messages)
+            .maxTokens(250)
             .build();
 
         List<ChatCompletionChoice> choices = service.createChatCompletion(chatCompletionRequest).getChoices();
