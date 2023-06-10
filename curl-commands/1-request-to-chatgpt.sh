@@ -4,5 +4,5 @@ curl https://api.openai.com/v1/chat/completions \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -d '{
     "model": "gpt-3.5-turbo",
-    "messages": [{"role": "user", "content": "Hello!"}]
-}'
+    "messages": [{"role": "user", "content": "What is Apache APISIX?"}]
+  }'
