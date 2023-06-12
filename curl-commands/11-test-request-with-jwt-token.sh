@@ -1,4 +1,4 @@
-curl http://127.0.0.1:9080/ask-me-anything -H 'Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJ1c2VyLWtleSIsImV4cCI6MTY4NjQ3MjYxOX0.ELB3U8UNgLpyyFy-HO5rcgKFp8x3YpzU2X4FBNiPkgY' -X POST -d '
+curl http://localhost:9080/ask-me-anything -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ1c2VyLWtleSIsImV4cCI6MTY4NjU5Mjk4N30.lhom9db3XMkcVd86ScpM6s4eP1_YzR-tfmXPckszsYo' -X POST -d '
 {
-   "prompt":"Write a brief product description for Apple 13 pro"
+   "prompt":"What is Apache APISIX?"
 }'

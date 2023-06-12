@@ -1,4 +1,4 @@
-curl http://127.0.0.1:9080/ask-me-anything -X POST -d '
+curl http://localhost:9080/ask-me-anything -X POST -d '
 {
-   "prompt":"Write a brief product description for Apple 13 pro"
+   "prompt":"What is Apache APISIX?"
 }'
