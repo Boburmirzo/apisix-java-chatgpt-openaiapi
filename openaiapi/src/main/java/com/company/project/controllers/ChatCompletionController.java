@@ -16,9 +16,16 @@ import java.util.List;
 @RestController
 public class ChatCompletionController {
 
+    /** 
+     * The version of AI model we'll send requests.
+     * This example uses gpt-4
+     * Other versions: https://platform.openai.com/docs/models/model-endpoint-compatibility
+     */
     @Value("${openai.model}")
     private String model;
-
+    /**
+     * API key to access OpenAI API
+     */
     @Value("${openai.api.key}")
     private String openaiApiKey;
 
