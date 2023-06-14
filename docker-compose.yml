@@ -19,6 +19,18 @@ services:
     networks:
       apisix:
 
+  appsmith:
+    image: index.docker.io/appsmith/appsmith-ce
+    container_name: appsmith
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./stacks:/appsmith-stacks
+    restart: unless-stopped 
+    networks:
+      apisix:   
+
 networks:
   apisix:
     driver: bridge
