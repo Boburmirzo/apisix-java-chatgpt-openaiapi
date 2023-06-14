@@ -1,0 +1,9 @@
+proxy-cache:
+   cache_key:
+    - "$uri"
+    - "-cache-id"
+   cache_method:
+   - POST
+   cache_http_status:
+   - 200
+   hide_cache_headers: true

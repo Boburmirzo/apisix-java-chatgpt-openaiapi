@@ -1,0 +1,8 @@
+limit-count:
+  count: 2
+  time_window: 60
+  rejected_code: 403
+  rejected_msg: "Requests are too frequent, please try again later."
+  key_type: "var"
+  key: "remote_addr"
+

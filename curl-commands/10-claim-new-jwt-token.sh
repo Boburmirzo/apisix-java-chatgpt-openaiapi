@@ -1,1 +1,0 @@
-curl -i http://localhost:9080/login?key=user-key -i

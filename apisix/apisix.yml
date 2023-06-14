@@ -1,0 +1,23 @@
+upstreams:
+  - id: 1
+    type: roundrobin
+    nodes:
+      "openaiapi:8080": 1
+routes:
+  - uri: /ask-me-anything
+    upstream_id: 1
+    plugins:
+      proxy-rewrite:
+        uri: /ai-chat
+      jwt-auth: {}
+  - uri: /login
+    plugins:
+      public-api:
+        uri: /apisix/plugin/jwt/sign
+consumers:
+  - username: appsmithuser
+    plugins:
+        jwt-auth:
+            key: appsmithuser@gmail.com
+            secret: my-secret-key        
+#END
