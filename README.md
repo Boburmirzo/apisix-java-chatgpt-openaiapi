@@ -16,13 +16,13 @@ To set up the project, we can simply run `docker compose up` command. Because we
 
 ### Community
 
-🙋 [Join the Apache APISIX Community](https://apisix.apache.org/docs/general/join/)
-🐦 [Follow us on Twitter](https://twitter.com/ApacheAPISIX)
-📝 [Find us on Slack](https://join.slack.com/t/the-asf/shared_invite/zt-vlfbf7ch-HkbNHiU_uDlcH_RvaHv9gQ)
-💁 [How to contribute page](https://apisix.apache.org/docs/general/how-to-contribute/)
+- 🙋 [Join the Apache APISIX Community](https://apisix.apache.org/docs/general/join/)
+- 🐦 [Follow us on Twitter](https://twitter.com/ApacheAPISIX)
+- 📝 [Find us on Slack](https://join.slack.com/t/the-asf/shared_invite/zt-vlfbf7ch-HkbNHiU_uDlcH_RvaHv9gQ)
+- 💁 [How to contribute page](https://apisix.apache.org/docs/general/how-to-contribute/)
 
 ### About the author
 
-Visit my blog: [www.iambobur.com](https://www.iambobur.com/)
-Ask questions: [on Slack](https://join.slack.com/t/the-asf/shared_invite/zt-vlfbf7ch-HkbNHiU_uDlcH_RvaHv9gQ)
+- Visit my blog: [www.iambobur.com](https://www.iambobur.com/)
+- Ask questions: [on Slack](https://join.slack.com/t/the-asf/shared_invite/zt-vlfbf7ch-HkbNHiU_uDlcH_RvaHv9gQ)
 
